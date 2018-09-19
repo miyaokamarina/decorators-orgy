@@ -1,0 +1,16 @@
+{
+  "name": "decorators-orgy",
+  "version": "2.2.8-cyka.1488",
+  "main": "index.js",
+  "repository": "https://github.com/miyaokamarina/decorators-orgy.git",
+  "author": "Marina Miyaoka <miyaokamarina@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@babel/cli": "^7.1.0",
+    "@babel/core": "^7.1.0",
+    "@babel/plugin-proposal-decorators": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "prettier": "^1.14.3"
+  }
+}
