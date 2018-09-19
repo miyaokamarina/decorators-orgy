@@ -1,4 +1,6 @@
+import { proxy } from './meta';
+
 export const callable = d => ({
     ...d,
-    finisher: C => new Proxy(C, { apply: (target, _, args) => Reflect.construct(C, args) }),
+    finisher: C => proxy(C, { apply: (target, _, args) => Reflect.construct(C, args) }),
 });
