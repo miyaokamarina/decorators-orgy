@@ -1,14 +1,4 @@
 module.exports = {
-    presets: [
-        [
-            '@babel/env',
-            {
-                useBuiltIns: 'usage',
-                modules: false,
-                shippedProposals: true,
-                loose: true,
-            },
-        ]
-    ],
-    plugins: ['@babel/plugin-transform-runtime'],
+    presets: [['@babel/env', { targets: { node: true } }]],
+    plugins: [['@babel/plugin-proposal-decorators', { decoratorsBeforeExport: true }]],
 };
