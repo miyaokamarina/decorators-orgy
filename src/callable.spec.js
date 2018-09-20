@@ -7,7 +7,7 @@ test('call should return an instance', () => {
     expect(A()).toBeInstanceOf(A);
 });
 
-test.skip('@@callable should expose [[Apply]] internal slot', () => {
+test.skip('@@callable should expose [[Call]] internal slot', () => {
     @callable
     class A {
         static [callable]() {
