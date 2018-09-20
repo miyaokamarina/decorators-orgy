@@ -1,4 +1,5 @@
-import { proxy, metaSet, metaGet, metaDel } from './meta';
+import { metaSet, metaGet, metaDel } from './meta';
+import { proxy } from './proxy';
 
 class C {}
 

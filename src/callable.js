@@ -1,4 +1,4 @@
-import { proxy } from './meta';
+import { proxy } from './proxy';
 import { symbol } from './symbol';
 
 export const callable = d => ({

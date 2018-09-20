@@ -1,19 +1,9 @@
-const store = new WeakMap();
-const wrappers = new WeakMap();
+import { unwrap } from './proxy';
 
-const unwrap = target => wrappers.get(target) || target;
-const wrap = (target, wrapper) => wrappers.set(wrapper, target);
+const store = new WeakMap();
 
 const get = target => store.get(unwrap(target));
 const set = (target, value) => store.set(unwrap(target), value);
-
-export const proxy = (C, handler) => {
-    const P = new Proxy(C, handler);
-
-    wrap(C, P);
-
-    return P;
-};
 
 export const metaSet = (target, key, val) => {
     const map = get(target) || new Map();
