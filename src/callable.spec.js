@@ -1,14 +1,14 @@
 import { callable } from './callable';
 
 test('call should return an instance', () => {
-    @callable
+    @callable()
     class A {}
 
     expect(A()).toBeInstanceOf(A);
 });
 
 test.skip('@@callable should expose [[Call]] internal slot', () => {
-    @callable
+    @callable()
     class A {
         static [callable]() {
             return 1488;

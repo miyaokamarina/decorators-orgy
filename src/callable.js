@@ -1,7 +1,7 @@
 import { proxy } from './proxy';
 import { symbol } from './symbol';
 
-export const callable = d => ({
+export const callable = () => d => ({
     ...d,
     finisher: C =>
         proxy(C, {
