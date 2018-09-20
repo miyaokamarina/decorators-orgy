@@ -1,6 +1,6 @@
 import { proxy, unwrap } from './proxy';
 
-export const abstract = d => ({
+export const abstract = () => d => ({
     ...d,
     finisher: C =>
         proxy(C, {
