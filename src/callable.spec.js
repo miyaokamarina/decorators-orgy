@@ -19,7 +19,7 @@ test.skip('@@callable on class should expose its [[Call]] internal slot', () => 
     expect(A()).toBe(1488);
 });
 
-test.skip('@@callable on instance should expose ins [[Call]] internal slot', () => {
+test.skip('@@callable on instance should expose its [[Call]] internal slot', () => {
     @callable()
     class A {
         [callable]() {
