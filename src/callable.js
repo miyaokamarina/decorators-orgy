@@ -1,17 +1,33 @@
 import { proxy } from './proxy';
 import { symbol } from './symbol';
+import { mimic } from './mimic';
 
 export const callable = () => d => ({
     ...d,
     finisher: C =>
         proxy(C, {
-            apply(target, _, args) {
-                if (Reflect.has(target, callable)) {
-                    return Reflect.apply(target[callable], _, args);
+            apply(T, _, args) {
+                if (Reflect.has(T, callable)) {
+                    return Reflect.apply(T[callable], _, args);
                 } else {
-                    return Reflect.construct(target, args);
+                    return Reflect.construct(T, args);
                 }
             },
+            construct(T, args, NT) {
+                const instance = Reflect.construct(T, args, NT);
+
+                if (!Reflect.has(instance, callable)) {
+                    return instance;
+                }
+
+                const caller = mimic(instance[callable], function (...args) {
+                    return Reflect.apply(instance[callable], this, args);
+                });
+
+                Reflect.setPrototypeOf(caller, instance);
+
+                return caller;
+            }
         }),
 });
 
