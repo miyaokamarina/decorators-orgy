@@ -1,28 +1,28 @@
-import { callable } from './callable';
+import { Callable } from './Callable';
 
 test('call should return an instance', () => {
-    @callable()
+    @Callable()
     class A {}
 
     expect(A()).toBeInstanceOf(A);
 });
 
-test.skip('@@callable on class should expose its [[Call]] internal slot', () => {
-    @callable()
+test.skip('@@Callable on class should expose its [[Call]] internal slot', () => {
+    @Callable()
     class A {
-        static [callable]() {
+        static [Callable]() {
             return 1488;
         }
     }
 
-    expect(A()).toBe(A[callable]());
+    expect(A()).toBe(A[Callable]());
     expect(A()).toBe(1488);
 });
 
-test.skip('@@callable on instance should expose its [[Call]] internal slot', () => {
-    @callable()
+test.skip('@@Callable on instance should expose its [[Call]] internal slot', () => {
+    @Callable()
     class A {
-        [callable]() {
+        [Callable]() {
             return 1488;
         }
     }

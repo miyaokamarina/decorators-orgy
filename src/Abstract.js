@@ -1,6 +1,6 @@
 import { proxy, unwrap } from './proxy';
 
-export const abstract = () => d => {
+export const Abstract = () => d => {
     if (d.kind === 'class') {
         return {
             ...d,
@@ -32,9 +32,9 @@ export const abstract = () => d => {
     return d;
 };
 
-@abstract()
+@Abstract()
 class A {
-    @abstract()
+    @Abstract()
     f() {
         return 1488;
     }

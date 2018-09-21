@@ -1,14 +1,14 @@
-import { abstract } from './abstract';
+import { Abstract } from './Abstract';
 
 test('abstract class should not be constructable', () => {
-    @abstract()
+    @Abstract()
     class A {}
 
     expect(() => new A()).toThrow(TypeError);
 });
 
 test('subclass of abstract class should be constructable', () => {
-    @abstract()
+    @Abstract()
     class A {}
 
     class B extends A {}
@@ -19,7 +19,7 @@ test('subclass of abstract class should be constructable', () => {
 
 test('abstract method call should throw', () => {
     class A {
-        @abstract()
+        @Abstract()
         f() {}
     }
 
