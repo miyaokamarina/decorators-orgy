@@ -16,3 +16,16 @@ test('subclass of abstract class should be constructable', () => {
     expect(new B()).toBeInstanceOf(B);
     expect(new B()).toBeInstanceOf(A);
 });
+
+test('abstract method call should throw', () => {
+    class A {
+        @abstract()
+        f() {}
+    }
+
+    const a = new A();
+
+    expect(() => {
+        a.f();
+    }).toThrow(TypeError);
+});
